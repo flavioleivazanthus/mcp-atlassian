@@ -1,5 +1,9 @@
 # Use a Python image with uv pre-installed
 FROM ghcr.io/astral-sh/uv:python3.10-bookworm-slim AS uv
+# Update apt and npm 
+RUN apt-get update 
+
+RUN npm set strict-ssl false
 
 # Install the project into `/app`
 WORKDIR /app
